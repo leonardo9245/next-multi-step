@@ -12,7 +12,7 @@ interface PlanOptionProps {
 }
 
 export function PlanOption(props: PlanOptionProps) {
-  const { setPlan, planDurationOption, setPlanObj, planObj } = useContextForm();
+  const { setPlan, planDurationOption, setPlanObj } = useContextForm();
 
   const planPriceUpdate =
     planDurationOption === planDurationType.MONTHLY

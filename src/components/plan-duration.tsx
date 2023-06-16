@@ -4,16 +4,28 @@ import { planDurationType } from '@/types/plan-duration-type';
 export interface IPlanDurationProps {}
 
 export function PlanDuration(props: IPlanDurationProps) {
-  const { planDurationOption, setPlanDurationOption, setPlanObj, planObj } =
-    useContextForm();
+  const {
+    planDurationOption,
+    setPlanDurationOption,
+    setPlanObj,
+    planObj,
+    addons,
+    setAddons
+  } = useContextForm();
 
   const handleSwitchToggle = () => {
     if (planDurationOption === planDurationType.MONTHLY) {
       setPlanDurationOption(planDurationType.YEARLY);
       setPlanObj({ plan: planObj.plan, price: planObj.price * 10 });
+      setAddons(
+        addons.map(addon => ({ name: addon.name, price: addon.price * 10 }))
+      );
     } else {
       setPlanDurationOption(planDurationType.MONTHLY);
       setPlanObj({ plan: planObj.plan, price: planObj.price / 10 });
+      setAddons(
+        addons.map(addon => ({ name: addon.name, price: addon.price / 10 }))
+      );
     }
   };
 

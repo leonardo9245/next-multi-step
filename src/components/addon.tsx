@@ -2,11 +2,6 @@ import { useContextForm } from '@/hooks/useContextForm';
 import { planDurationType } from '@/types/plan-duration-type';
 import { ChangeEvent, useState } from 'react';
 
-interface IAddon {
-  name: string;
-  price: number;
-}
-
 interface IAddonProps {
   name: string;
   price: number;
@@ -14,8 +9,7 @@ interface IAddonProps {
 }
 
 export function Addon(props: IAddonProps) {
-  const { planDurationOption } = useContextForm();
-  const [addons, setAddons] = useState<IAddon[]>([]);
+  const { planDurationOption, addons, setAddons } = useContextForm();
   const [checked, setChecked] = useState(false);
 
   const addonPriceUpdate =
@@ -30,9 +24,7 @@ export function Addon(props: IAddonProps) {
     if (event.target.checked) {
       if (addons.some(obj => obj.name === valueName)) return;
 
-      const newAddon = { name: valueName, price: addonPriceUpdate };
-
-      setAddons(prevState => [...prevState, newAddon]);
+      setAddons([...addons, { name: valueName, price: addonPriceUpdate }]);
     }
 
     if (!event.target.checked) {
@@ -57,6 +49,7 @@ export function Addon(props: IAddonProps) {
         value={`${props.name}`}
         className=" w-5 h-5 "
         onChange={handleCheckBox}
+        checked={addons.some(obj => obj.name === props.name) ? true : false}
       />
       <div className="flex items-center ml-4">
         <div className=" min-w-[200px]">
