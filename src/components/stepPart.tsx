@@ -14,28 +14,28 @@ export function StepPart(props: IFormPartProps) {
     <div className="flex gap-4">
       <div
         className={`${partsStyle} ${
-          countFormPage === 1 ? 'bg-white  text-primaryText' : 'text-white'
+          countFormPage === 1 ? 'bg-white  text-primaryColor' : 'text-white'
         }`}
       >
         1
       </div>
       <div
         className={`${partsStyle} ${
-          countFormPage === 2 ? 'bg-white text-primaryText' : 'text-white '
+          countFormPage === 2 ? 'bg-white text-primaryColor' : 'text-white '
         }`}
       >
         2
       </div>
       <div
         className={`${partsStyle} ${
-          countFormPage === 3 ? 'bg-white text-primaryText' : 'text-white'
+          countFormPage === 3 ? 'bg-white text-primaryColor' : 'text-white'
         }`}
       >
         3
       </div>
       <div
         className={`${partsStyle} ${
-          countFormPage === 4 ? 'bg-white text-primaryText' : 'text-white'
+          countFormPage === 4 ? 'bg-white text-primaryColor' : 'text-white'
         }`}
       >
         4
