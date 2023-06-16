@@ -1,4 +1,6 @@
 'use client';
+
+import { PlanObj } from '@/interface/interfaces';
 import { planDurationType } from '@/types/plan-duration-type';
 import { planType } from '@/types/plan-type';
 import { ReactNode, createContext, useState } from 'react';
@@ -11,9 +13,11 @@ export const Context = createContext({
   countFormPage: 2,
   plan: planType.ARCADE,
   planDurationOption: planDurationType.MONTHLY,
+  planObj: { plan: 'Arcade', price: 9 },
   setCountFormPage: (value: number) => {},
   setPlan: (value: planType) => {},
-  setPlanDurationOption: (value: planDurationType) => {}
+  setPlanDurationOption: (value: planDurationType) => {},
+  setPlanObj: (value: PlanObj) => {}
 });
 
 export function ContextProvider({ children }: ProviderProps) {
@@ -22,6 +26,10 @@ export function ContextProvider({ children }: ProviderProps) {
   const [planDurationOption, setPlanDurationOption] = useState(
     planDurationType.MONTHLY
   );
+  const [planObj, setPlanObj] = useState<PlanObj>({
+    plan: 'Arcade',
+    price: 9
+  });
 
   return (
     <Context.Provider
@@ -31,7 +39,9 @@ export function ContextProvider({ children }: ProviderProps) {
         plan,
         setPlan,
         planDurationOption,
-        setPlanDurationOption
+        setPlanDurationOption,
+        planObj,
+        setPlanObj
       }}
     >
       {children}
