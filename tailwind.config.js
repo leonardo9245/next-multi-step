@@ -12,7 +12,8 @@ module.exports = {
       },
       colors: {
         bgPage: '#EEF5FF',
-        primaryText: '#02295a'
+        primaryColor: '#02295a',
+        purPlishBlue: '#473dff'
       }
     }
   },
