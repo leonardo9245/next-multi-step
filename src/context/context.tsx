@@ -1,8 +1,8 @@
 'use client';
 
-import { PlanObj } from '@/interface/interfaces';
+import { IAddon } from '@/types/addon-type';
 import { planDurationType } from '@/types/plan-duration-type';
-import { planType } from '@/types/plan-type';
+import { PlanObj, planType } from '@/types/plan-type';
 import { ReactNode, createContext, useState } from 'react';
 
 interface ProviderProps {
@@ -10,18 +10,20 @@ interface ProviderProps {
 }
 
 export const Context = createContext({
-  countFormPage: 2,
+  countFormPage: 1,
   plan: planType.ARCADE,
   planDurationOption: planDurationType.MONTHLY,
   planObj: { plan: 'Arcade', price: 9 },
+  addons: [{ name: '', price: 0 }],
   setCountFormPage: (value: number) => {},
   setPlan: (value: planType) => {},
   setPlanDurationOption: (value: planDurationType) => {},
-  setPlanObj: (value: PlanObj) => {}
+  setPlanObj: (value: PlanObj) => {},
+  setAddons: (value: IAddon[]) => {}
 });
 
 export function ContextProvider({ children }: ProviderProps) {
-  const [countFormPage, setCountFormPage] = useState(2);
+  const [countFormPage, setCountFormPage] = useState(4);
   const [plan, setPlan] = useState(planType.ARCADE);
   const [planDurationOption, setPlanDurationOption] = useState(
     planDurationType.MONTHLY
@@ -30,6 +32,8 @@ export function ContextProvider({ children }: ProviderProps) {
     plan: 'Arcade',
     price: 9
   });
+
+  const [addons, setAddons] = useState<IAddon[]>([{ name: '', price: 0 }]);
 
   return (
     <Context.Provider
@@ -41,7 +45,9 @@ export function ContextProvider({ children }: ProviderProps) {
         planDurationOption,
         setPlanDurationOption,
         planObj,
-        setPlanObj
+        setPlanObj,
+        addons,
+        setAddons
       }}
     >
       {children}
