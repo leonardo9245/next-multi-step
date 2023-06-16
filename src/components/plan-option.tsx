@@ -6,13 +6,12 @@ interface PlanOptionProps {
   planIcon: string;
   planName: string;
   planPrice: number;
-  planDuration: string;
   selected: boolean;
-  planValue: planType;
+  planTypeOption: planType;
 }
 
 export function PlanOption(props: PlanOptionProps) {
-  const { setPlan } = useContextForm();
+  const { setPlan, planDurationOption } = useContextForm();
   const handlePlanType = (value: planType) => {
     setPlan(value);
   };
@@ -21,13 +20,13 @@ export function PlanOption(props: PlanOptionProps) {
       className={`flex items-center gap-4 border rounded-lg px-4 py-4 ${
         props.selected ? 'border-primaryColor bg-bgPage' : ''
       }`}
-      onClick={() => handlePlanType(props.planValue)}
+      onClick={() => handlePlanType(props.planTypeOption)}
     >
       <Image src={props.planIcon} width={60} height={60} alt="" />
       <div>
         <p className="font-bold text-xl text-primaryColor">{props.planName}</p>
         <small className="text-lg text-gray-400">
-          ${props.planPrice}/<span>{props.planDuration}</span>
+          ${props.planPrice}/<span>mo</span>
         </small>
       </div>
     </div>

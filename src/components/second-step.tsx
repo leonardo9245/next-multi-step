@@ -18,26 +18,23 @@ export function SecondStep(props: ISecondStepProps) {
         <PlanOption
           planName="Arcade"
           planPrice={9}
-          planDuration="mo"
           planIcon="./images/icon-arcade.svg"
           selected={plan === planType.ARCADE}
-          planValue={planType.ARCADE}
+          planTypeOption={planType.ARCADE}
         />
         <PlanOption
           planName="Advanced"
           planPrice={12}
-          planDuration="mo"
           planIcon="./images/icon-advanced.svg"
           selected={plan === planType.ADVANCED}
-          planValue={planType.ADVANCED}
+          planTypeOption={planType.ADVANCED}
         />
         <PlanOption
           planName="Pro"
           planPrice={15}
-          planDuration="mo"
           planIcon="./images/icon-pro.svg"
           selected={plan === planType.PRO}
-          planValue={planType.PRO}
+          planTypeOption={planType.PRO}
         />
         <PlanDuration />
       </div>
