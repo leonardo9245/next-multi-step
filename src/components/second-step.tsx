@@ -1,17 +1,16 @@
 import { useContextForm } from '@/hooks/useContextForm';
 import { PlanOption } from './plan-option';
 import { planType } from '@/types/plan-type';
+import { PlanDuration } from './plan-duration';
 
-export interface ISecondStepProps {
-  selected: boolean;
-}
+export interface ISecondStepProps {}
 
 export function SecondStep(props: ISecondStepProps) {
   const { plan } = useContextForm();
 
   return (
     <div className="bg-white rounded-md space-y-4 px-6 py-8 shadow-md">
-      <h2 className="font-bold text-3xl text-primaryText">Select your plan</h2>
+      <h2 className="font-bold text-3xl text-primaryColor">Select your plan</h2>
       <p className="text-gray-400 text-lg">
         You have the option of monthly or yearly billing
       </p>
@@ -40,7 +39,7 @@ export function SecondStep(props: ISecondStepProps) {
           selected={plan === planType.PRO}
           planValue={planType.PRO}
         />
-        <div> Monthly/yearly</div>
+        <PlanDuration />
       </div>
     </div>
   );

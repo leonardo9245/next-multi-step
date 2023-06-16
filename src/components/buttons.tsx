@@ -38,7 +38,7 @@ export function Buttons(props: IButtonsProps) {
 
       <button
         onClick={handleAddCount}
-        className={`${buttonStyle} text-white bg-primaryText px-4 py-3 rounded-md`}
+        className={`${buttonStyle} text-white bg-primaryColor px-4 py-3 rounded-md`}
       >
         Next Step
       </button>

@@ -11,7 +11,7 @@ export function FirstStep() {
   const inputStyles =
     'border-2 rounded-sm px-2 py-2 w-full text-base font-bold';
 
-  const labelStyles = 'text-primaryText';
+  const labelStyles = 'text-primaryColor';
   const [userInfo, setUserInfo] = useState<UserInfo>({
     name: '',
     email: '',
@@ -36,7 +36,7 @@ export function FirstStep() {
 
   return (
     <div className="bg-white rounded-md space-y-4 px-6 py-8 shadow-md">
-      <h2 className="font-bold text-3xl text-primaryText">Personal info</h2>
+      <h2 className="font-bold text-3xl text-primaryColor">Personal info</h2>
       <p className="text-gray-400 text-lg">
         Please provide your name, email address, and phone number.
       </p>
