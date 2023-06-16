@@ -1,3 +1,5 @@
+import { useContextForm } from '@/hooks/useContextForm';
+import { planDurationType } from '@/types/plan-duration-type';
 import { ChangeEvent, useState } from 'react';
 
 interface IAddon {
@@ -9,12 +11,17 @@ interface IAddonProps {
   name: string;
   price: number;
   description: string;
-  serviceDuration: string;
 }
 
 export function Addon(props: IAddonProps) {
+  const { planDurationOption } = useContextForm();
   const [addons, setAddons] = useState<IAddon[]>([]);
   const [checked, setChecked] = useState(false);
+
+  const addonPriceUpdate =
+    planDurationOption === planDurationType.MONTHLY
+      ? props.price
+      : props.price * 10;
 
   const handleCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
     const valueName = event.target.value;
@@ -23,7 +30,7 @@ export function Addon(props: IAddonProps) {
     if (event.target.checked) {
       if (addons.some(obj => obj.name === valueName)) return;
 
-      const newAddon = { name: valueName, price: props.price };
+      const newAddon = { name: valueName, price: addonPriceUpdate };
 
       setAddons(prevState => [...prevState, newAddon]);
     }
@@ -58,7 +65,8 @@ export function Addon(props: IAddonProps) {
         </div>
         <div className="text-purPlishBlue ">
           <span>
-            +${props.price}/{props.serviceDuration}
+            +${addonPriceUpdate}/
+            {planDurationOption === planDurationType.MONTHLY ? 'mo' : 'yr'}
           </span>
         </div>
       </div>

@@ -26,7 +26,7 @@ export function Buttons(props: IButtonsProps) {
   const buttonStyle = 'text-lg font-bold';
 
   return (
-    <div className="absolute flex bottom-0 justify-between items-center min-w-full bg-white py-4 px-4">
+    <div className="absolute flex bottom-0 justify-between items-center min-w-full bg-white py-4 px-4 mt-4">
       <button
         onClick={handleDecreaseCount}
         className={`${buttonStyle} text-gray-400 ${
