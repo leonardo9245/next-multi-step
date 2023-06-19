@@ -5,7 +5,6 @@ import { SecondStep } from './second-step';
 import { StepThree } from './step-Three';
 import { StepFour } from './step-four';
 import { FinalStep } from './final-step';
-import { Confetti } from './confetti';
 
 export function StepControl() {
   const { countFormPage } = useContextForm();
