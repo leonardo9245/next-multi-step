@@ -41,7 +41,7 @@ export function Addon(props: IAddonProps) {
       htmlFor={props.name.split(' ').join('_')}
       className={`flex items-center  border px-4 py-4 rounded-lg ${
         isChecked ? 'bg-bgPage border-primaryColor' : ''
-      } hover:border-primaryColor duration-300`}
+      } hover:border-primaryColor duration-300 cursor-pointer`}
     >
       <input
         type="checkbox"
