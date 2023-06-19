@@ -2,17 +2,21 @@
 import { useContextForm } from '@/hooks/useContextForm';
 import React from 'react';
 
-export interface IButtonsProps {}
+export interface IButtonsProps {
+  name: string;
+  isValid: boolean;
+}
 
 export function Buttons(props: IButtonsProps) {
   const { countFormPage, setCountFormPage } = useContextForm();
 
-  const handleAddCount = () => {
+  const handleAddCount = (valid: boolean) => {
+    if (!valid) return;
     let count = countFormPage;
 
     count = count + 1;
 
-    if (count <= 4) setCountFormPage(count);
+    if (count <= 5) setCountFormPage(count);
   };
 
   const handleDecreaseCount = () => {
@@ -23,24 +27,28 @@ export function Buttons(props: IButtonsProps) {
     if (count >= 1) setCountFormPage(count);
   };
 
-  const buttonStyle = 'text-lg font-bold';
-
   return (
-    <div className="absolute flex bottom-0 justify-between items-center min-w-full bg-white py-4 px-4 mt-4">
+    <div className="absolute flex bottom-0 left-0 justify-between items-center w-full bg-white py-4 px-4 mt-4 md:py-0 md:right-10 md:bottom-6 md:w-[50%] md:left-[364px] md:px-0 ">
       <button
         onClick={handleDecreaseCount}
-        className={`${buttonStyle} text-gray-400 ${
+        className={`text-lg font-bold text-gray-400 ${
           countFormPage > 1 ? 'opacity-100' : 'opacity-0'
-        }`}
+        } hover:text-primaryColor duration-300`}
       >
         Go Back
       </button>
 
       <button
-        onClick={handleAddCount}
-        className={`${buttonStyle} text-white bg-primaryColor px-4 py-3 rounded-md`}
+        id="next"
+        type="submit"
+        onClick={() => handleAddCount(props.isValid)}
+        className={`text-lg font-bold text-white  px-4 py-3 rounded-md ${
+          props.name === ''
+            ? 'bg-primaryColor'
+            : 'bg-purPlishBlue hover:bg-secondaryHoverColor'
+        } hover:bg-primaryHoverColor duration-300`}
       >
-        Next Step
+        {props.name === '' ? 'Next Step' : props.name}
       </button>
     </div>
   );

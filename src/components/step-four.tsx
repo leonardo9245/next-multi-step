@@ -24,7 +24,7 @@ export function StepFour(props: IStepFourProps) {
 
   return (
     <>
-      <div className="bg-white rounded-md space-y-6 px-6 py-8 shadow-md">
+      <div className="bg-white rounded-md space-y-6 px-6 py-8 shadow-md md:shadow-none md:px-16">
         <h2 className="font-bold text-3xl text-primaryColor">Finishing up</h2>
         <p className="text-gray-400 text-lg">
           Double-check everything looks OK before confirming.
@@ -75,9 +75,8 @@ export function StepFour(props: IStepFourProps) {
             ${sumTotal()}/{formatDuration()}
           </p>
         </div>
+        <Buttons name="Confirm" isValid={true} />
       </div>
-
-      <Buttons />
     </>
   );
 }

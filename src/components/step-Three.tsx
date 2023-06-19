@@ -6,7 +6,7 @@ export interface IStepThreeProps {}
 export function StepThree(props: IStepThreeProps) {
   return (
     <>
-      <div className="bg-white rounded-md space-y-4 px-6 py-8 shadow-md">
+      <div className="bg-white rounded-md space-y-4 px-6 py-8 shadow-md md:shadow-none md:px-14">
         <h2 className="font-bold text-3xl text-primaryColor">Pick add-ons</h2>
         <p className="text-gray-400 text-lg">
           Add-ons help enhance your gaming experience
@@ -26,8 +26,8 @@ export function StepThree(props: IStepThreeProps) {
           price={2}
           description="custom theme on your profile"
         />
+        <Buttons name="" isValid={true} />
       </div>
-      <Buttons />
     </>
   );
 }

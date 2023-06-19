@@ -10,7 +10,7 @@ interface IAddonProps {
 
 export function Addon(props: IAddonProps) {
   const { planDurationOption, addons, setAddons } = useContextForm();
-  const [checked, setChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
 
   const addonPriceUpdate =
     planDurationOption === planDurationType.MONTHLY
@@ -19,7 +19,7 @@ export function Addon(props: IAddonProps) {
 
   const handleCheckBox = (event: ChangeEvent<HTMLInputElement>) => {
     const valueName = event.target.value;
-    setChecked(event.target.checked);
+    setIsChecked(event.target.checked);
 
     if (event.target.checked) {
       if (addons.some(obj => obj.name === valueName)) return;
@@ -40,8 +40,8 @@ export function Addon(props: IAddonProps) {
     <label
       htmlFor={props.name.split(' ').join('_')}
       className={`flex items-center  border px-4 py-4 rounded-lg ${
-        checked ? 'bg-bgPage border-primaryColor' : ''
-      }`}
+        isChecked ? 'bg-bgPage border-primaryColor' : ''
+      } hover:border-primaryColor duration-300`}
     >
       <input
         type="checkbox"
@@ -51,8 +51,8 @@ export function Addon(props: IAddonProps) {
         onChange={handleCheckBox}
         checked={addons.some(obj => obj.name === props.name) ? true : false}
       />
-      <div className="flex items-center ml-4">
-        <div className=" min-w-[200px]">
+      <div className="flex items-center ml-4 justify-around">
+        <div className=" min-w-[200px] md:min-w-[300px]">
           <h3 className="text-primaryColor font-bold text-lg">{props.name}</h3>
           <p className="text-gray-400 text-sm">{props.description}</p>
         </div>

@@ -28,10 +28,16 @@ export function PlanOption(props: PlanOptionProps) {
     <div
       className={`flex items-center gap-4 border rounded-lg px-4 py-4 ${
         props.selected ? 'border-primaryColor bg-bgPage' : ''
-      }`}
+      } md:flex-col md:min-w-[140px] cursor-pointer md:items-start md:space-y-4 hover:border-primaryColor duration-300`}
       onClick={() => handlePlanType(props.planTypeOption)}
     >
-      <Image src={props.planIcon} width={60} height={60} alt="" />
+      <Image
+        className="md:w-10"
+        src={props.planIcon}
+        width={60}
+        height={60}
+        alt=""
+      />
       <div className="flex flex-col">
         <p className="font-bold text-xl text-primaryColor">{props.planName}</p>
         <small className="text-lg text-gray-400">
