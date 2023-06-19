@@ -48,7 +48,7 @@ export function Input(props: InputProps) {
         id={props.inputId}
         type={props.inputType}
         placeholder={props.inputPlaceholder}
-        className={`cursor-pointer border rounded-md px-2 py-2 w-full text-base font-bold bg-transparent ${
+        className={`cursor-pointer text-primaryColor border rounded-md px-2 py-2 w-full text-base font-medium bg-transparent ${
           props.requiredMessage && 'border-errorColor'
         }`}
         onChange={handleInput}
