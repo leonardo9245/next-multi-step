@@ -1,6 +1,5 @@
 import { StepPart } from '@/components/stepPart';
 import { StepControl } from '@/components/step-control';
-import { Confetti } from '@/components/confetti';
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
         <StepPart />
         <StepControl />
       </div>
-      <Confetti />
     </main>
   );
 }
