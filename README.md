@@ -5,11 +5,11 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+- [The challenge](#the-challenge)
+- [Screenshot](#screenshot)
 - [My process](#my-process)
-  - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
+- [Built with](#built-with)
+- [What I learned](#what-i-learned)
 - [Author](#author)
 
 ## Overview
