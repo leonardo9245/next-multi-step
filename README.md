@@ -7,7 +7,6 @@ This is a solution to the [Multi-step form challenge on Frontend Mentor](https:/
 - [Overview](#overview)
   - [The challenge](#the-challenge)
   - [Screenshot](#screenshot)
-  - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
